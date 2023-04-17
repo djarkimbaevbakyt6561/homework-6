@@ -29,7 +29,6 @@ export const ExpensesForm = ({ onClick, onSubmit }) => {
             date: convertedDate,
             id: Math.random()
         };
-        console.log(convertedDate);
         onSubmit(product);
         setInputText('');
         setInputNumber('');

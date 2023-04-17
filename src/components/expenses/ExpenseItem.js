@@ -1,6 +1,7 @@
 import ExpenseDate from './ExpenseDate'
 import './ExpenseItem.css'
-export const ExpenseItem = ({ el, onClick, id }) => {
+export const ExpenseItem = ({ el, onClick,  id }) => {
+    console.log(id);
     return (
         <li className="li">
             <ExpenseDate date={el.date} />

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import './Expenses.css'
 import { ExpenseItem } from './ExpenseItem'
@@ -7,32 +6,37 @@ import ExpenseChart from "../chart/ExpensesChart"
 
 export const Expenses = ({ data, onClick }) => {
     const [selectedYear, setSelectedYear] = useState('2023')
-    const [filteredYear, setFilteredYear] = useState(data)
+    const [sortState, setSortState] = useState(true)
+
+    const filteredYear = data.filter((el) => el.date.getFullYear().toString() === selectedYear)
+
+    const sortedData = filteredYear.slice().sort((a, b) => {
+        if (sortState === true) {
+            return a.date.getMonth() - b.date.getMonth()
+        } else if (sortState === false) {
+            return b.date.getMonth() - a.date.getMonth()
+        }
+    })
+
     function getSelectValue(event) {
         setSelectedYear(event.target.value)
-        setFilteredYear(data.filter((el) => {
-            return el.date.getFullYear().toString() === event.target.value
-        }))
     }
+
     function ascendingProduct() {
-        const sortedData = data.sort((a, b) => a.date.getMonth() - b.date.getMonth())
-        setFilteredYear(sortedData.filter((el) => {
-            return el.date.getFullYear().toString() === selectedYear
-        }))
+        setSortState(true)
     }
+
     function descendingProduct() {
-        const sortedData = data.sort((a, b) => b.date.getMonth() - a.date.getMonth())
-        setFilteredYear(sortedData.filter((el) => {
-            return el.date.getFullYear().toString() === selectedYear
-        }))
+        setSortState(false)
     }
+
     return (
         <ul className='ul'>
             <ExpensesFilter onClick2={descendingProduct} onClick={ascendingProduct} getValue={getSelectValue} selected={selectedYear} />
             <ExpenseChart filteredExpenses={filteredYear} />
-            {filteredYear.map((el) => {
-                return <ExpenseItem el={el} id={el.id} onClick={onClick} />
-            })}
+            {sortedData.map((el) => (
+                <ExpenseItem id={el.id} key={el.id} el={el} onClick={onClick} />
+            ))}
         </ul>
     )
 }

@@ -44,8 +44,6 @@ function App() {
     const newData = product.filter((el) => el.id !== id)
     setNewProduct(newData)
   }
-
-
   return (
     <div className="App">
       <NewExpense onSubmit={addNewExpensesHandler} />
