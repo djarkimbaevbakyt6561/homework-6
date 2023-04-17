@@ -1,0 +1,17 @@
+.button-container {
+  background: #ad9be9;
+  border-radius: 12px;
+  width: 780px;
+  height: 71px;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.button-container-2 {
+  width: 780px;
+  height: 287px;
+  margin-top: 20px;
+  background: #ad9be9;
+  border-radius: 12px;
+}
+

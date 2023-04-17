@@ -1,0 +1,33 @@
+.expense-date {
+  box-sizing: border-box;
+  background: #2a2a2a;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  width: 82.11px;
+  height: 80px;
+  margin-left: 16px;
+}
+.expense-date__month {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 8px;
+  color: #ffffff;
+}
+.expense-date__year {
+  margin-top: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+.expense-date__day {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin-top: 4px;
+}

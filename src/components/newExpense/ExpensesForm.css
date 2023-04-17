@@ -1,0 +1,13 @@
+.expenses-form {
+    display: flex;
+    flex-direction: column;
+}
+.number-text {
+    display: flex;
+    justify-content: space-evenly;
+}
+.button-cont {
+    margin-top: 28px;
+    display: flex;
+    justify-content: flex-end;
+}
